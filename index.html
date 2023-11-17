@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attack on Titan</title>
+    <style>
+        body::before {
+            content: "";
+            background-image: url('images/guys.png');
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        h1,
+        .back-link {
+            color: rgb(34, 31, 31);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            z-index: 1;
+            align-self: center;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .back-link,
+        .page2-link {
+            color: rgb(34, 31, 31);
+            text-decoration: none;
+            margin-top: 10px;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: -230px; 
+            color: rgb(34, 31, 31);
+            margin-bottom: 10px;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .back-link {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+        }
+
+        .page2-link {
+            position: fixed;
+            right: 10px;
+            top: 10px;
+        }
+
+        section {
+            margin-top: 20px;
+            display: none;
+        }
+
+        img {
+            max-width: 50%;
+            height: auto;
+        }
+
+        video {
+            width: 50%;
+            margin-top: 10px;
+        }
+
+        nav {
+            position: fixed;
+            top: 40px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: rgb(34, 31, 31);
+            text-decoration: none;
+            margin: 0 10px;
+            font-family: 'Comic Sans MS', cursive;
+            cursor: pointer;
+        }
+
+        .accordion-content {
+            display: none;
+        }
+
+        .accordion-content.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            img,
+            video {
+                width: 100%;
+            }
+
+            .back-link,
+            .page2-link {
+                position: static;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a onclick="toggleSection('images')">Posters in the style of attack on the titans|</a>
+        <a onclick="toggleSection('videos')">|Favorite moments from attack on the Titans</a>
+    </nav>
+
+    <a href="index.html" class="back-link">Back</a>
+    <a href="page2.html" class="page2-link">Go to page 2</a>
+
+    <p>
+        Together with you, we will plunge into the exciting world of anime, which has won the hearts
+        of millions - "Attack on the Titans". 
+        Are you ready to meet the Titans and unravel the mysteries that this
+        amazing animated masterpiece conceals behind it? You can see what posters there are, what characters there are and also see moments from the anime and listen to the openings
+    </p>
+
+    <section id="images" class="accordion-content">
+        <h2>Posters</h2>
+        <img src="images/draw1.jpg" alt="Рисунок 1">
+        <img src="images/draw2.jpg" alt="Рисунок 2">
+        <img src="images/draw3.jpg" alt="Рисунок 3">
+        <img src="images/draw4.jpg" alt="Рисунок 4">
+        <img src="images/draw5.jpg" alt="Рисунок 5">
+    </section>
+
+    <section id="videos" class="accordion-content">
+        <h2>Favorite moments</h2>
+        <video controls>
+            <source src="images/vid1.mp4" type="video/mp4">
+        </video>
+        <video controls>
+            <source src="images/vid2.mp4" type="video/mp4">
+        </video>
+        <video controls>
+            <source src="images/vid3.mp4" type="video/mp4">
+        </video>
+        <video controls>
+            <source src="images/levi.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <script>
+        function toggleSection(sectionId) {
+            var selectedSection = document.getElementById(sectionId);
+            var otherSections = document.querySelectorAll('.accordion-content');
+            
+            otherSections.forEach(function (section) {
+                if (section !== selectedSection) {
+                    section.classList.remove('show');
+                }
+            });
+
+            if (selectedSection) {
+                selectedSection.classList.toggle('show');
+            }
+        }
+    </script>
+</body>
+
+</html>
